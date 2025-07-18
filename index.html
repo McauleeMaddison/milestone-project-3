@@ -1,0 +1,7 @@
+<h1>Records</h1>
+<ul>
+    {% for record in records %}
+        <li>{{ record.title }} - <a href="{% url 'edit_record' record.pk %}">Edit</a> - <a href="{% url 'delete_record' record.pk %}">Delete</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_record' %}">Add a new record</a>
