@@ -35,3 +35,24 @@ document.getElementById('dynamic-form').addEventListener('submit', function (e) 
     alert('Please fill all fields.');
   }
 });
+document.getElementById('dynamic-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  fetch('/submit', {
+    method: 'POST',
+    body: formData,
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert('Form submitted successfully!');
+    } else {
+      alert('There was an error with your submission.');
+    }
+  })
+  .catch(error => {
+    alert('Error: ' + error);
+  });
+});
