@@ -15,3 +15,23 @@ document.addEventListener('DOMContentLoaded', () => {
     additionalFieldsContainer.appendChild(newField);
   });
 });
+document.getElementById('dynamic-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  let valid = true;
+  const inputs = document.querySelectorAll('input[type="text"]');
+
+  inputs.forEach(input => {
+    if (!input.value.trim()) {
+      input.style.borderColor = 'red';
+      valid = false;
+    } else {
+      input.style.borderColor = '#ddd'; // Reset border color if valid
+    }
+  });
+
+  if (valid) {
+    alert('Form Submitted Successfully!');
+  } else {
+    alert('Please fill all fields.');
+  }
+});
