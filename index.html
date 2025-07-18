@@ -1,7 +1,26 @@
-<h1>Records</h1>
-<ul>
-    {% for record in records %}
-        <li>{{ record.title }} - <a href="{% url 'edit_record' record.pk %}">Edit</a> - <a href="{% url 'delete_record' record.pk %}">Delete</a></li>
-    {% endfor %}
-</ul>
-<a href="{% url 'add_record' %}">Add a new record</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customizable Data Input</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>Customizable Data Input</h1>
+    <form id="dynamic-form">
+      <div class="input-group">
+        <label for="field1">Field 1:</label>
+        <input type="text" id="field1" name="field1" placeholder="Enter data for Field 1">
+      </div>
+      <div id="additional-fields"></div>
+      <button type="button" id="add-field">Add Another Field</button>
+      <br><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
